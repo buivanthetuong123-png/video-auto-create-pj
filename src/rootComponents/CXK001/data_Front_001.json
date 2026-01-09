@@ -1,0 +1,85 @@
+[
+  [
+    {
+      "tieude": "Phòng chữa bệnh Cơ xương khớp!",
+      "action": "Hook",
+      "id": null,
+      "class": null,
+      "text": "+1 Kiến thức về phòng chữa bệnh Cơ xương khớp!",
+      "code": "CSKA_000",
+      "imgHook": "CSK_001.png"
+    },
+    {
+      "tieude": null,
+      "action": "QSAW",
+      "id": null,
+      "class": "AN",
+      "text": "Tôi bị đau khớp kéo dài hơn 2 tuần không giảm, nhận định nào là đúng nhất?",
+      "code": "CSKA_001",
+      "imgHook": null
+    },
+    {
+      "tieude": null,
+      "action": "QSAW",
+      "id": "OPACITY",
+      "class": "AN",
+      "text": "A. Đau khớp nào cũng tự hết.",
+      "code": "CSKA_002",
+      "imgHook": null
+    },
+    {
+      "tieude": null,
+      "action": "QSAW",
+      "id": null,
+      "class": "AN",
+      "text": "B. Chỉ cần uống thuốc giảm đau là đủ.",
+      "code": "CSKA_003",
+      "imgHook": null
+    },
+    {
+      "tieude": null,
+      "action": "QSAW",
+      "id": "DUNG",
+      "class": "AN",
+      "text": "C. Đau kéo dài có thể là bệnh, nên đi khám.",
+      "code": "CSKA_004",
+      "imgHook": null
+    },
+    {
+      "tieude": null,
+      "action": "QSAW",
+      "id": null,
+      "class": "AN",
+      "text": "D. Chỉ người già mới bị bệnh khớp.",
+      "code": "CSKA_005",
+      "imgHook": null
+    },
+    {
+      "tieude": null,
+      "action": "DEMNGUOC",
+      "id": null,
+      "class": null,
+      "text": null,
+      "code": null,
+      "imgHook": null
+    },
+    {
+      "tieude": null,
+      "action": "CHONDAPAN",
+      "id": null,
+      "class": null,
+      "text": "Đáp án đúng: C. Đau kéo dài có thể là bệnh, nên đi khám.",
+      "code": "CSKA_006",
+      "imgHook": null
+    },
+    {
+      "tieude": null,
+      "action": "END",
+      "id": null,
+      "class": null,
+      "text": "Đau khớp kéo dài là dấu hiệu không bình thường. Việc cố chịu hoặc chỉ uống thuốc giảm đau có thể làm chậm phát hiện bệnh, khiến khớp tổn thương nặng hơn.",
+      "code": "CSKA_007",
+      "imgHook": null
+    }
+  ]
+]

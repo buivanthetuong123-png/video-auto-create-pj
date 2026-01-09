@@ -1,0 +1,16 @@
+node_modules
+dist
+.DS_Store
+.env
+
+out
+
+build
+
+A_saveOld
+
+renders/
+*.mp4
+*.mov
+*.wav
+*.zip

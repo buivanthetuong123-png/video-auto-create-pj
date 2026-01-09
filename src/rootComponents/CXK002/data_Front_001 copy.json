@@ -1,0 +1,76 @@
+[
+  [
+    {
+      "code": "CSKA_001",
+      "text": "Cơ Xương Khớp",
+      "typingSound": true,
+      "Sound_Text": "What color is the object?",
+      "img": "CSK_001.png",
+      "timeFixed": 5,
+      "Sound_Effect": null,
+      "actions": [
+        {
+          "cmd": "typingText",
+          "text": "Trắc nghiệm kiến thức thông dụng về bệnh các Cơ Xương Khớp và cách điều trị",
+          "sound": true,
+          "noTyping": true,
+          "styleCss": {
+            "fontSize": "60px",
+            "color": "yellow",
+            "borderTop": "1px solid black",
+            "textAlign": "center"
+          }
+        },
+        {
+          "cmd": "typingText",
+          "text": "Tôi bị đau khớp kéo dài hơn 2 tuần không giảm, nhận định nào là đúng nhất?",
+          "sound": true,
+          "styleCss": {
+            "fontSize": "60px",
+            "color": "yellow",
+            "borderTop": "1px solid black",
+            "textAlign": "center",
+            "position": "absolute",
+            "top": "80px",
+            "backgroundColor": "gray"
+          }
+        }
+      ]
+    },
+    {
+      "code": "ENG_002",
+      "text": "Red",
+      "Sound_Text": "It is red.",
+      "img": "ENG_001.jpg",
+      "Sound_Effect": "x"
+    },
+    {
+      "code": "ENG_003",
+      "text": "What object is used for writing?",
+      "Sound_Text": "What object is used for writing?",
+      "img": "ENG_002.jpg",
+      "Sound_Effect": null
+    },
+    {
+      "code": "ENG_004",
+      "text": "A pen",
+      "Sound_Text": "It is a pen.",
+      "img": "ENG_002.jpg",
+      "Sound_Effect": "x"
+    },
+    {
+      "code": "ENG_005",
+      "text": "What happened before this moment?",
+      "Sound_Text": "What happened before this moment?",
+      "img": "ENG_003.jpg",
+      "Sound_Effect": null
+    },
+    {
+      "code": "ENG_006",
+      "text": "They met their friends",
+      "Sound_Text": "They met their friends.",
+      "img": "ENG_003.jpg",
+      "Sound_Effect": "x"
+    }
+  ]
+]

@@ -1,0 +1,338 @@
+[
+  [
+    {
+      "code": "SOUNDCHUNG_SpaceSound",
+      "timeFixed": 1,
+      "actions": [
+        {
+          "cmd": "typingText",
+          "text": "Hãy follow",
+          "sound": true,
+          "noTyping": true,
+          "styleCss": {
+            "marginTop": "100px",
+            "padding": "40px 60px",
+            "fontSize": "100px",
+            "fontWeight": "900",
+            "color": "#FFD700",
+            "textAlign": "center",
+            "background": "rgba(0,0,0,0.75)",
+            "borderRadius": "20px",
+            "border": "6px solid #FFD700",
+            "boxShadow": "\n    0 0 20px #FFD700,\n    0 0 40px rgba(255,215,0,0.6)\n  ",
+            "textTransform": "uppercase",
+            "letterSpacing": "2px"
+          }
+        }
+      ]
+    },
+    {
+      "tieude": "Phòng chữa bệnh Cơ xương khớp!",
+      "action": "Hook",
+      "id": null,
+      "class": null,
+      "text": "+1 Kiến thức về phòng chữa bệnh Cơ xương khớp!",
+      "code": "CSKA_000",
+      "imgHook": "CSK_001.png",
+      "timeFixed": 4,
+      "actions": [
+        {
+          "cmd": "typingText",
+          "text": "+1 Kiến thức về phòng chữa bệnh Cơ xương khớp!",
+          "sound": true,
+          "noTyping": false,
+          "styleCss": {
+            "marginTop": "100px",
+            "padding": "40px 60px",
+            "fontSize": "100px",
+            "fontWeight": "900",
+            "color": "#FFD700",
+            "textAlign": "center",
+            "background": "rgba(0,0,0,0.75)",
+            "borderRadius": "20px",
+            "border": "6px solid #FFD700",
+            "boxShadow": "\n    0 0 20px #FFD700,\n    0 0 40px rgba(255,215,0,0.6)\n  ",
+            "textTransform": "uppercase",
+            "letterSpacing": "2px"
+          }
+        }
+      ]
+    },
+    {
+      "tieude": null,
+      "action": "QSAW",
+      "id": null,
+      "class": "AN",
+      "text": "Tôi bị đau khớp kéo dài hơn 2 tuần không giảm, nhận định nào là đúng nhất?",
+      "code": "CSKA_001",
+      "imgHook": null,
+      "ClassMark": "AN",
+      "actions": [
+        {
+          "cmd": "typingText",
+          "text": "Tôi bị đau khớp kéo dài hơn 2 tuần không giảm, nhận định nào là đúng nhất?",
+          "sound": true,
+          "noTyping": true,
+          "ToEndFrame": true,
+          "styleCss": {
+            "position": "absolute",
+            "top": "50px",
+            "fontSize": "60px",
+            "color": "#ffffff",
+            "borderTop": "1px solid black",
+            "borderRadius": "20px",
+            "textAlign": "left",
+            "background": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+            "padding": "20px",
+            "lineHeight": 1.35,
+            "letterSpacing": "0.5px"
+          }
+        }
+      ]
+    },
+    {
+      "tieude": null,
+      "action": "QSAW",
+      "id": "OPACITY",
+      "class": "AN",
+      "text": "A. Đau khớp nào cũng tự hết.",
+      "code": "CSKA_002",
+      "imgHook": null,
+      "IDMark": "OPACITY",
+      "ClassMark": "AN",
+      "actions": [
+        {
+          "cmd": "typingText",
+          "text": "A. Đau khớp nào cũng tự hết.",
+          "sound": true,
+          "noTyping": true,
+          "ToEndFrame": true,
+          "styleCss": {
+            "position": "absolute",
+            "top": "400px",
+            "fontSize": "60px",
+            "color": "#ffffff",
+            "borderTop": "1px solid black",
+            "borderRadius": "20px",
+            "textAlign": "left",
+            "background": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+            "padding": "20px",
+            "lineHeight": 1.35,
+            "letterSpacing": "0.5px"
+          }
+        }
+      ]
+    },
+    {
+      "tieude": null,
+      "action": "QSAW",
+      "id": null,
+      "class": "AN",
+      "text": "B. Chỉ cần uống thuốc giảm đau là đủ.",
+      "code": "CSKA_003",
+      "imgHook": null,
+      "ClassMark": "AN",
+      "actions": [
+        {
+          "cmd": "typingText",
+          "text": "B. Chỉ cần uống thuốc giảm đau là đủ.",
+          "sound": true,
+          "noTyping": true,
+          "ToEndFrame": true,
+          "styleCss": {
+            "position": "absolute",
+            "top": "550px",
+            "fontSize": "60px",
+            "color": "#ffffff",
+            "borderTop": "1px solid black",
+            "borderRadius": "20px",
+            "textAlign": "left",
+            "background": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+            "padding": "20px",
+            "lineHeight": 1.35,
+            "letterSpacing": "0.5px"
+          }
+        }
+      ]
+    },
+    {
+      "tieude": null,
+      "action": "QSAW",
+      "id": "DUNG",
+      "class": "AN",
+      "text": "C. Đau kéo dài có thể là bệnh, nên đi khám.",
+      "code": "CSKA_004",
+      "imgHook": null,
+      "IDMark": "DUNG",
+      "ClassMark": "AN",
+      "actions": [
+        {
+          "cmd": "actionCssId",
+          "toID": "OPACITY",
+          "cssMode": "replace",
+          "css": {
+            "transform": "scale(1.5) translateX(-200px)",
+            "transition": "transform 3s ease-in-out"
+          }
+        },
+        {
+          "cmd": "typingText",
+          "text": "C. Đau kéo dài có thể là bệnh, nên đi khám.",
+          "sound": true,
+          "noTyping": true,
+          "ToEndFrame": true,
+          "styleCss": {
+            "position": "absolute",
+            "top": "800px",
+            "fontSize": "60px",
+            "color": "#ffffff",
+            "borderTop": "1px solid black",
+            "borderRadius": "20px",
+            "textAlign": "left",
+            "background": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+            "padding": "20px",
+            "lineHeight": 1.35,
+            "letterSpacing": "0.5px"
+          }
+        }
+      ]
+    },
+    {
+      "tieude": null,
+      "action": "QSAW",
+      "id": null,
+      "class": "AN",
+      "text": "D. Chỉ người già mới bị bệnh khớp.",
+      "code": "CSKA_005",
+      "imgHook": null,
+      "ClassMark": "AN",
+      "actions": [
+        {
+          "cmd": "typingText",
+          "text": "D. Chỉ người già mới bị bệnh khớp.",
+          "sound": true,
+          "noTyping": true,
+          "ToEndFrame": true,
+          "styleCss": {
+            "position": "absolute",
+            "top": "1050px",
+            "fontSize": "60px",
+            "color": "#ffffff",
+            "borderTop": "1px solid black",
+            "borderRadius": "20px",
+            "textAlign": "left",
+            "background": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+            "padding": "20px",
+            "lineHeight": 1.35,
+            "letterSpacing": "0.5px"
+          }
+        }
+      ]
+    },
+    {
+      "tieude": null,
+      "action": "DEMNGUOC",
+      "id": null,
+      "class": null,
+      "text": null,
+      "code": "SOUNDCHUNG_tiktok-dongho",
+      "imgHook": null,
+      "timeFixed": 7,
+      "actions": [
+        {
+          "cmd": "countdown",
+          "countDownFrom": 7,
+          "colorTheme": "orange",
+          "zIndex": 100,
+          "styleCss": { "scale": "2", "transform": "translateY(300px)" }
+        }
+      ]
+    },
+    {
+      "tieude": null,
+      "action": "CHONDAPAN",
+      "id": null,
+      "class": null,
+      "text": "Đáp án đúng: C. Đau kéo dài có thể là bệnh, nên đi khám.",
+      "code": "CSKA_006",
+      "imgHook": null,
+      "actions": [
+        {
+          "cmd": "actionCssId",
+          "toID": "DUNG",
+          "cssMode": "add",
+          "css": {
+            "backgroundColor": "yellow",
+            "background": "yellow",
+            "color": "black"
+          }
+        }
+      ]
+    },
+    {
+      "tieude": null,
+      "action": "END",
+      "id": null,
+      "class": null,
+      "text": "Đau khớp kéo dài là dấu hiệu không bình thường. Việc cố chịu hoặc chỉ uống thuốc giảm đau có thể làm chậm phát hiện bệnh, khiến khớp tổn thương nặng hơn.",
+      "code": "CSKA_007",
+      "imgHook": null,
+      "actions": [
+        {
+          "cmd": "actionCssClass",
+          "toClass": "AN",
+          "cssMode": "replace",
+          "css": { "opacity": 0 }
+        },
+        {
+          "cmd": "typingText",
+          "text": "Đau khớp kéo dài là dấu hiệu không bình thường. Việc cố chịu hoặc chỉ uống thuốc giảm đau có thể làm chậm phát hiện bệnh, khiến khớp tổn thương nặng hơn.",
+          "sound": true,
+          "styleCss": {
+            "position": "absolute",
+            "top": "100px",
+            "fontSize": "70px",
+            "borderTop": "1px solid black",
+            "borderRadius": "20px",
+            "textAlign": "left",
+            "background": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+            "padding": "20px",
+            "lineHeight": 1.75,
+            "letterSpacing": "0.5px",
+            "color": "#ffffff"
+          }
+        }
+      ]
+    },
+    {
+      "action": "Hook",
+      "subAction": "End",
+      "text": "Hãy follow",
+      "code": "SOUNDCHUNG_SpaceSound",
+      "imgHook": "CSK_001.png",
+      "timeFixed": 4,
+      "actions": [
+        {
+          "cmd": "typingText",
+          "text": "Hãy follow",
+          "sound": true,
+          "noTyping": true,
+          "styleCss": {
+            "marginTop": "100px",
+            "padding": "40px 60px",
+            "fontSize": "100px",
+            "fontWeight": "900",
+            "color": "#FFD700",
+            "textAlign": "center",
+            "background": "rgba(0,0,0,0.75)",
+            "borderRadius": "20px",
+            "border": "6px solid #FFD700",
+            "boxShadow": "\n    0 0 20px #FFD700,\n    0 0 40px rgba(255,215,0,0.6)\n  ",
+            "textTransform": "uppercase",
+            "letterSpacing": "2px"
+          }
+        }
+      ]
+    }
+  ]
+]

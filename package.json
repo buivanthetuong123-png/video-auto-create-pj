@@ -1,0 +1,31 @@
+{
+  "name": "my-sta-video",
+  "version": "1.0.0",
+  "description": "My Remotion video",
+  "repository": {},
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@remotion/cli": "4.0.286",
+    "@remotion/media-utils": "^4.0.372",
+    "bootstrap": "^5.3.8",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "remotion": "^4.0.286",
+    "zod": "3.22.3"
+  },
+  "devDependencies": {
+    "@remotion/eslint-config-flat": "4.0.286",
+    "eslint": "9.19.0",
+    "prettier": "3.3.3"
+  },
+  "scripts": {
+    "dev": "remotion studio",
+    "start": "remotion studio",
+    "build": "remotion bundle",
+    "upgrade": "remotion upgrade",
+    "renderimg": "node render-all6image.js",
+    "rendervideoSLOW": "node render-all_video_tiktok.js",
+    "lint": "eslint src"
+  }
+}

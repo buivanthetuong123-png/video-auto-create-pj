@@ -1,0 +1,152 @@
+[
+  [
+    {
+      "code": "ENG_001",
+      "text": "What color is the object?",
+      "Sound_Text": "What color is the object?",
+      "img": "ENG_001.jpg"
+    },
+    {
+      "text": "DEMNGUOC",
+      "img": "ENG_001.jpg",
+      "code": "SOUNDCHUNG_tiktok-dongho",
+      "timeFixed": 3
+    },
+    {
+      "code": "ENG_002",
+      "text": "Red",
+      "Sound_Text": "It is red.",
+      "img": "ENG_001.jpg"
+    },
+    {
+      "text": "",
+      "img": "ENG_001.jpg",
+      "code": "SOUNDCHUNG_SpaceSound",
+      "timeFixed": 1
+    },
+    {
+      "code": "ENG_003",
+      "text": "What object is used for writing?",
+      "Sound_Text": "What object is used for writing?",
+      "img": "ENG_002.jpg"
+    },
+    {
+      "text": "DEMNGUOC",
+      "img": "ENG_002.jpg",
+      "code": "SOUNDCHUNG_tiktok-dongho",
+      "timeFixed": 3
+    },
+    {
+      "code": "ENG_004",
+      "text": "A pen",
+      "Sound_Text": "It is a pen.",
+      "img": "ENG_002.jpg"
+    },
+    {
+      "text": "",
+      "img": "ENG_002.jpg",
+      "code": "SOUNDCHUNG_SpaceSound",
+      "timeFixed": 1
+    },
+    {
+      "code": "ENG_005",
+      "text": "What happened before this moment?",
+      "Sound_Text": "What happened before this moment?",
+      "img": "ENG_003.jpg"
+    },
+    {
+      "text": "DEMNGUOC",
+      "img": "ENG_003.jpg",
+      "code": "SOUNDCHUNG_tiktok-dongho",
+      "timeFixed": 3
+    },
+    {
+      "code": "ENG_006",
+      "text": "They met their friends",
+      "Sound_Text": "They met their friends.",
+      "img": "ENG_003.jpg"
+    },
+    {
+      "text": "",
+      "img": "ENG_003.jpg",
+      "code": "SOUNDCHUNG_SpaceSound",
+      "timeFixed": 1,
+      "timePlus": 10
+    }
+  ],
+  [
+    {
+      "code": "ENG_001",
+      "text": "What color is the object?",
+      "Sound_Text": "What color is the object?",
+      "img": "ENG_001.jpg"
+    },
+    {
+      "text": "DEMNGUOC",
+      "img": "ENG_001.jpg",
+      "code": "SOUNDCHUNG_tiktok-dongho",
+      "timeFixed": 3
+    },
+    {
+      "code": "ENG_002",
+      "text": "Red",
+      "Sound_Text": "It is red.",
+      "img": "ENG_001.jpg"
+    },
+    {
+      "text": "",
+      "img": "ENG_001.jpg",
+      "code": "SOUNDCHUNG_SpaceSound",
+      "timeFixed": 1
+    },
+    {
+      "code": "ENG_003",
+      "text": "What object is used for writing?",
+      "Sound_Text": "What object is used for writing?",
+      "img": "ENG_002.jpg"
+    },
+    {
+      "text": "DEMNGUOC",
+      "img": "ENG_002.jpg",
+      "code": "SOUNDCHUNG_tiktok-dongho",
+      "timeFixed": 3
+    },
+    {
+      "code": "ENG_004",
+      "text": "A pen",
+      "Sound_Text": "It is a pen.",
+      "img": "ENG_002.jpg"
+    },
+    {
+      "text": "",
+      "img": "ENG_002.jpg",
+      "code": "SOUNDCHUNG_SpaceSound",
+      "timeFixed": 1
+    },
+    {
+      "code": "ENG_005",
+      "text": "What happened before this moment?",
+      "Sound_Text": "What happened before this moment?",
+      "img": "ENG_003.jpg"
+    },
+    {
+      "text": "DEMNGUOC",
+      "img": "ENG_003.jpg",
+      "code": "SOUNDCHUNG_tiktok-dongho",
+      "timeFixed": 3
+    },
+    {
+      "code": "ENG_006",
+      "text": "They met their friends",
+      "Sound_Text": "They met their friends.",
+      "img": "ENG_003.jpg"
+    },
+    {
+      "text": "",
+      "img": "ENG_003.jpg",
+      "code": "SOUNDCHUNG_SpaceSound",
+      "timeFixed": 1,
+      "timePlus": 10
+    }
+  ]
+]
