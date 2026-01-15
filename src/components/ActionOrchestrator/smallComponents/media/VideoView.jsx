@@ -1,3 +1,4 @@
+// src/Components/ActionOrchestrator/smallComponents/media/VideoView.jsx
 import React, { useState, useEffect } from "react";
 import {
   Html5Video,
@@ -5,57 +6,55 @@ import {
   continueRender,
   delayRender,
   useCurrentFrame,
-  interpolate,
-  spring,
-  Easing,
   useVideoConfig,
 } from "remotion";
+import {
+  useAnimations,
+  getAnimationStyle,
+} from "../../utils/animations/animationResolver.js";
 
-/**
- * Component hiển thị video với Remotion-native animations
- * ⭐ Breathing, bounce, fade animations
- */
 const VideoView = ({
   video,
   frame,
   styCss = {},
   startFrame = 0,
   endFrame = 300,
-  videoSize = "800px",
-  fps = 30,
+  videoSize = "1800px",
   data = {},
+  dataAction = {},
   sound = true,
   volume = 1,
   loop = false,
   playbackRate = 1,
-  fullscreen = false,
-  // ⭐ Animation options
-  breathingAnimation = false,
-  breathingDuration = 300,
-  bounceIn = false,
-  fadeIn = false,
   ...props
 }) => {
   const currentFrame = useCurrentFrame();
-  const { fps: configFps } = useVideoConfig();
+  const { fps } = useVideoConfig();
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [loadedVideoSrc, setLoadedVideoSrc] = useState(null);
   const [handle] = useState(() => delayRender("Loading video"));
 
-  // ✅ Get video path
+  // ⭐ Lấy id/class từ dataAction hoặc data
+  const elementId = dataAction.id || data.id;
+  const elementClass = dataAction.className || data.className;
+
+  // ⭐ Lấy animations từ data
+  const animations = dataAction.animations || data.animations || [];
+  const animationStyles = useAnimations(animations);
+
+  // Get video path
   const getVideoPath = (videoName) => {
     if (!videoName) return null;
     if (videoName.includes("_")) {
       const prefix = videoName.split("_")[0];
       return `video/${prefix}/${videoName}`;
-    } else {
-      return `video/${videoName}`;
     }
+    return `video/${videoName}`;
   };
 
   const videoPath = getVideoPath(video);
 
-  // ✅ Pre-load video
+  // Pre-load video
   useEffect(() => {
     if (!videoPath) {
       setVideoLoaded(true);
@@ -85,137 +84,54 @@ const VideoView = ({
     };
   }, [videoPath, handle]);
 
-  // ⭐ Breathing scale (loop)
-  const breathingScale = breathingAnimation
-    ? interpolate(
-        currentFrame % breathingDuration,
-        [0, breathingDuration / 2, breathingDuration],
-        [1, 1.5, 1],
-        {
-          easing: Easing.inOut(Easing.ease),
-        },
-      )
-    : 1;
+  // Visibility checks
+  if (frame < startFrame || frame > endFrame) return null;
+  if (!videoLoaded || !videoPath || !loadedVideoSrc) return null;
 
-  // ⭐ Bounce in (once)
-  const bounceScale = bounceIn
-    ? spring({
-        frame: currentFrame - startFrame,
-        fps: configFps,
-        config: { damping: 15, stiffness: 200 },
+  // ⭐ BUILD SELECTORS
+  const containerSelector = elementId ? `#${elementId}` : null;
+  const videoSelector = elementId ? `#${elementId}-video` : null;
+
+  // ⭐ CONTAINER STYLE - styleCss + animation
+  const containerStyle = containerSelector
+    ? getAnimationStyle(animationStyles, containerSelector, styCss)
+    : styCss;
+
+  // ⭐ VIDEO STYLE - default + animation
+  const videoStyle = videoSelector
+    ? getAnimationStyle(animationStyles, videoSelector, {
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+        display: "block",
       })
-    : 1;
+    : {
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+        display: "block",
+      };
 
-  // ⭐ Fade in (once)
-  const opacity = fadeIn
-    ? interpolate(currentFrame - startFrame, [0, 30], [0, 1], {
-        extrapolateRight: "clamp",
-      })
-    : 1;
-
-  // ⭐ Combine animations
-  const finalScale = breathingScale * bounceScale;
-
-  // Debug log
-  if ((breathingAnimation || bounceIn) && currentFrame % 30 === 0) {
-    console.log(`🎬 Frame ${currentFrame}:`, {
-      breathing: breathingScale.toFixed(2),
-      bounce: bounceScale.toFixed(2),
-      final: finalScale.toFixed(2),
-      opacity: opacity.toFixed(2),
+  // Debug
+  if (currentFrame % 60 === 0 && elementId) {
+    console.log(`🎬 VideoView [${elementId}] - Frame ${currentFrame}`, {
+      containerSelector,
+      videoSelector,
+      hasContainerAnimation: !!animationStyles[containerSelector],
+      hasVideoAnimation: !!animationStyles[videoSelector],
     });
   }
 
-  // ✅ Visibility checks
-  if (frame < startFrame || frame > endFrame) return null;
-  if (!videoLoaded) return null;
-  if (!videoPath) return null;
-
-  if (!loadedVideoSrc) {
-    return (
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          color: "white",
-          fontSize: "24px",
-        }}
-      >
-        Video not found: {video}
-      </div>
-    );
-  }
-
-  // ✅ Extract transform from styCss to avoid conflicts
-  const { transform: _, ...styCssWithoutTransform } = styCss;
-
-  // ✅ Default styles
-  const defaultStyle = fullscreen
-    ? {
-        position: "fixed",
-        top: "50%",
-        left: "50%",
-        width: "100vw",
-        height: "100vh",
-        objectFit: "cover",
-        zIndex: -1,
-        transformOrigin: "center center",
-      }
-    : {
-        width: videoSize,
-        height: videoSize,
-        objectFit: "cover",
-        borderRadius: "20px",
-        boxShadow: "0 10px 40px rgba(0, 0, 0, 0.3)",
-        transformOrigin: "center center",
-      };
-
-  // ✅ Final video styles
-  const finalVideoStyle = {
-    ...defaultStyle,
-    ...styCssWithoutTransform,
-  };
-
-  // ✅ Container styles with animations
-  const containerStyle = fullscreen
-    ? {
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100vw",
-        height: "100vh",
-        overflow: "hidden",
-        zIndex: styCss.zIndex || -1,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        // ⭐ Apply animations to container
-        transform: `scale(${finalScale})`,
-        opacity,
-        transformOrigin: "center center",
-      }
-    : {
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        width: "100%",
-        height: "100%",
-        // ⭐ Apply animations to container
-        transform: `scale(${finalScale})`,
-        opacity,
-        transformOrigin: "center center",
-      };
-
   return (
-    <div style={containerStyle}>
+    <div id={elementId} className={elementClass} style={containerStyle}>
       <Html5Video
+        id={elementId ? `${elementId}-video` : undefined}
         src={loadedVideoSrc}
         volume={sound ? volume : 0}
         muted={!sound}
         loop={loop}
         playbackRate={playbackRate}
-        style={finalVideoStyle}
+        style={videoStyle}
         onError={(err) => {
           if (process.env.NODE_ENV === "development") {
             console.warn(`Video playback error [${video}]:`, err.message);
@@ -226,5 +142,4 @@ const VideoView = ({
   );
 };
 
-// ⭐ EXPORT DEFAULT
 export default VideoView;

@@ -6,6 +6,7 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@remotion/animation-utils": "^4.0.405",
     "@remotion/bundler": "^4.0.405",
     "@remotion/cli": "^4.0.405",
     "@remotion/media-utils": "^4.0.372",

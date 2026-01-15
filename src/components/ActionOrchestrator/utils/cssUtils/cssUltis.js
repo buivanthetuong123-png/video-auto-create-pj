@@ -59,38 +59,224 @@ export const CommonStyles = {
 // ============================================
 // 🎬 VIDEO PRESETS
 // ============================================
+// src/utils/cssUtils.js
+// export const VideoPresets = {
+//   // ⭐ Looping background với animations qua data
+//   loopingBackground: (video, options = {}) => ({
+//     cmd: "videoView",
+//     video,
+//     videoSize: "200%",
+//     loop: true,
+//     sound: false,
+//     ToEndFrame: true,
+//     volume: options.volume || 0,
 
+//     // ⭐ STYLE cho container
+//     styleCss: {
+//       position: "fixed",
+//       inset: 0,
+//       left: -100,
+//       width: "1400px",
+//       // height: "2000px",
+//       overflow: "hidden",
+//       backgroundColor: "transparent",
+//       zIndex: options.zIndex ?? -1,
+//       border: "1px solid black",
+//       transform: "translate(-80%, -80%)", // Dịch sang trái/lên trên
+//       ...options.styleCss,
+//     },
+
+//     // ⭐ ANIMATIONS array
+//     animations: [
+//       // Pan animation cho container
+//       options.panAnimation !== false && {
+//         type: "pan",
+//         target: "IDcontainer",
+//         duration: options.panDuration || 150,
+//         startFrame: 0,
+//         panAmount: options.panAmount || 5,
+//         loop: true,
+//       },
+
+//       // Zoom animation cho video (optional)
+//       options.zoomInOut && {
+//         type: "zoom",
+//         target: "video",
+//         duration: options.panDuration || 150,
+//         startFrame: 0,
+//         zoomMin: options.zoomMin || 1.0,
+//         zoomMax: options.zoomMax || 1.2,
+//         loop: true,
+//       },
+
+//       // Breathing animation (optional)
+//       options.breathingAnimation && {
+//         type: "breathing",
+//         target: "container",
+//         duration: options.breathingDuration || 300,
+//         startFrame: 0,
+//         loop: true,
+//       },
+
+//       // Fade in (optional)
+//       options.fadeIn && {
+//         type: "fadeIn",
+//         target: "container",
+//         duration: 30,
+//         startFrame: 0,
+//       },
+//     ].filter(Boolean), // Loại bỏ false values
+
+//     ...options,
+//   }),
+
+//   // ⭐ Ken Burns effect
+//   kenBurnsVideo: (video, options = {}) => ({
+//     cmd: "videoView",
+//     video,
+//     loop: true,
+//     sound: false,
+//     ToEndFrame: true,
+
+//     styleCss: {
+//       position: "relative",
+//       width: "100%",
+//       height: "100%",
+//       overflow: "hidden",
+//       ...options.styleCss,
+//     },
+
+//     animations: [
+//       {
+//         type: "kenBurns",
+//         target: "video",
+//         duration: options.duration || 300,
+//         startScale: options.startScale || 1.0,
+//         endScale: options.endScale || 1.3,
+//         startX: options.startX || 0,
+//         endX: options.endX || -50,
+//         loop: options.loop !== false,
+//       },
+//     ],
+
+//     ...options,
+//   }),
+// };
+
+// src/utils/cssUtils.js
 export const VideoPresets = {
-  // ⭐ Looping background với Remotion breathing
-  loopingBackground: (video, options = {}) => ({
-    cmd: "videoView",
-    video,
-    videoSize: "100%",
-    loop: true,
-    sound: false,
-    ToEndFrame: true,
-    volume: options.volume || 0,
-    fullscreen: options.fullscreen !== false,
-    // ⭐ Enable Remotion breathing animation
-    breathingAnimation: options.breathingAnimation !== false,
-    breathingDuration: options.breathingDuration || 300, // 10s @ 30fps
-    styleCss: {
-      position: "fixed",
-      top: "50%",
-      left: "50%",
-      width: "100vw",
-      height: "100vh",
-      minWidth: "100vw",
-      minHeight: "100vh",
-      objectFit: "cover",
-      zIndex: options.zIndex ?? -1,
-      // ⭐ Không cần CSS animation nữa
-      ...options.styleCss,
-    },
-    ...options,
-  }),
+  // ⭐ Looping background với id cụ thể
+  loopingBackground: (video, options = {}) => {
+    const videoId = options.id || `video-${video.replace(/\./g, "-")}`;
 
-  // ... other presets
+    return {
+      cmd: "videoView",
+      video,
+      videoSize: "200%",
+      loop: true,
+      sound: false,
+      ToEndFrame: true,
+      volume: options.volume || 0,
+
+      // ⭐ ID để target animations
+      id: videoId,
+
+      // ⭐ STYLE cho container
+      styleCss: {
+        position: "fixed",
+        inset: 0,
+        left: -100,
+        width: "1400px",
+        // height: "2000px",
+        overflow: "hidden",
+        backgroundColor: "transparent",
+        zIndex: options.zIndex ?? -1,
+
+        transform: "translate(-20%, -20%)",
+        ...options.styleCss,
+      },
+
+      // ⭐ ANIMATIONS với target cụ thể
+      animations: [
+        // Pan animation cho container
+        options.panAnimation !== false && {
+          type: "pan",
+          target: `#${videoId}`, // ⭐ Target container
+          duration: options.panDuration || 150,
+          startFrame: 0,
+          panAmount: options.panAmount || 5,
+          loop: true,
+        },
+
+        // Zoom animation cho video element
+        options.zoomInOut && {
+          type: "zoom",
+          target: `#${videoId}-video`, // ⭐ Target video bên trong
+          duration: options.panDuration || 150,
+          startFrame: 0,
+          zoomMin: options.zoomMin || 1.0,
+          zoomMax: options.zoomMax || 1.2,
+          loop: true,
+        },
+
+        // Breathing animation
+        options.breathingAnimation && {
+          type: "breathing",
+          target: `#${videoId}`, // ⭐ Target container
+          duration: options.breathingDuration || 300,
+          startFrame: 0,
+          loop: true,
+        },
+
+        // Fade in
+        options.fadeIn && {
+          type: "fadeIn",
+          target: `#${videoId}`, // ⭐ Target container
+          duration: 30,
+          startFrame: 0,
+        },
+      ].filter(Boolean),
+
+      ...options,
+    };
+  },
+
+  // ⭐ Ken Burns effect
+  kenBurnsVideo: (video, options = {}) => {
+    const videoId = options.id || `kburns-${video.replace(/\./g, "-")}`;
+
+    return {
+      cmd: "videoView",
+      video,
+      loop: true,
+      sound: false,
+      ToEndFrame: true,
+      id: videoId,
+
+      styleCss: {
+        position: "relative",
+        width: "100%",
+        height: "100%",
+        overflow: "hidden",
+        ...options.styleCss,
+      },
+
+      animations: [
+        {
+          type: "kenBurns",
+          target: `#${videoId}-video`, // ⭐ Target video
+          duration: options.duration || 300,
+          startScale: options.startScale || 1.0,
+          endScale: options.endScale || 1.3,
+          startX: options.startX || 0,
+          endX: options.endX || -50,
+          loop: options.loop !== false,
+        },
+      ],
+
+      ...options,
+    };
+  },
 };
 // ============================================
 // 🖼️ IMAGE PRESETS

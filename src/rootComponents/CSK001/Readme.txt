@@ -166,3 +166,42 @@ mode /add && replace
             "display": "none"
           }
         }
+
+
+
+        // ⭐ OPTION 1: Zoom in-out mặc định (1.0 -> 1.2 -> 1.0)
+VideoPresets.loopingBackground("LoopingVideo001.mp4", {
+  fullscreen: true,
+  zoomInOut: true,           // ⭐ Enable zoom
+  breathingDuration: 150,    // 5s @ 30fps
+  ToEndFrame: true,
+}),
+
+// ⭐ OPTION 2: Zoom mạnh hơn (1.0 -> 1.3)
+VideoPresets.loopingBackground("LoopingVideo001.mp4", {
+  fullscreen: true,
+  zoomInOut: true,
+  zoomMin: 1.0,              // ⭐ Xa nhất
+  zoomMax: 1.3,              // ⭐ Gần nhất
+  breathingDuration: 180,    // 6s @ 30fps
+  ToEndFrame: true,
+}),
+
+// ⭐ OPTION 3: Zoom chậm (10s)
+VideoPresets.loopingBackground("LoopingVideo001.mp4", {
+  fullscreen: true,
+  zoomInOut: true,
+  zoomMin: 1.0,
+  zoomMax: 1.25,
+  breathingDuration: 300,    // 10s @ 30fps
+  ToEndFrame: true,
+}),
+
+// ⭐ OPTION 4: Breathing subtle (không zoom mạnh)
+VideoPresets.loopingBackground("LoopingVideo001.mp4", {
+  fullscreen: true,
+  zoomInOut: false,
+  breathingAnimation: true,  // Scale 1.0 -> 1.05
+  breathingDuration: 150,
+  ToEndFrame: true,
+}),

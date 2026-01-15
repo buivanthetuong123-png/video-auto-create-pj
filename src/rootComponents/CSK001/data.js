@@ -310,10 +310,10 @@ function OBJ_BEGIN(e) {
     },
 
     VideoPresets.loopingBackground("LoopingVideo001.mp4", {
-      fullscreen: true,
-      breathingAnimation: true,
-      breathingDuration: 300, // 10s @ 30fps
-      ToEndFrame: true,
+      id: "IDvideo001", // ⭐ ID cụ thể
+      panAnimation: true,
+      panAmount: 5,
+      panDuration: 150,
     }),
   ];
 }

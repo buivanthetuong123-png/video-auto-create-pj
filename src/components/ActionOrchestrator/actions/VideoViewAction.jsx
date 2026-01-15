@@ -22,7 +22,6 @@ function VideoViewAction({ data }) {
 
   // ✅ Lấy video từ action hoặc item hoặc data
   const video = action.video || item.video || data.video;
-
   if (!video) return null;
 
   // ✅ Merge styles
@@ -42,7 +41,7 @@ function VideoViewAction({ data }) {
       styCss={mergedStyle}
       startFrame={actionStartFrame}
       endFrame={actionEndFrame}
-      videoSize={action.videoSize || data.videoSize || "800px"}
+      videoSize={action.videoSize || data.videoSize || "1800px"}
       sound={action.sound !== false}
       volume={action.volume || 1}
       loop={action.loop || false}
