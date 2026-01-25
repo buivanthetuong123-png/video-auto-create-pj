@@ -11,7 +11,26 @@ import {
 
 const CMD_Fetch = CMD;
 
-//add layout
+//lay OBJcss
+//cach dung  ...getTextCSS(arr[0].textStyle),
+// function getTextCSS(style) {
+//   if (!style) return {};
+
+//   const key = typeof style === "number"
+//     ? `typingText${String(style).padStart(3, "0")}`
+//     : `typingText${style}`;
+
+//   return ObjCSS.textCSS[key] || {};
+// }
+
+// cách dùng ...getImgCSS(arr[0].imgStyle),
+// function getImgCSS(style) {
+//   if (!style) return {};
+//   const key = `img${String(style).padStart(3, "0")}`;
+//   return ObjCSS.imgCSS[key] || {};
+// }
+
+//lõi hệ thống
 let videoData01 = [];
 
 DataFront.forEach((videoData) => {
@@ -22,7 +41,11 @@ DataFront.forEach((videoData) => {
     if (obj.group === flag) {
       group.push(obj);
     } else {
+      //them control action o day nhe
+
+      //textStyle và img style phai hard code ở excel để gọi objCss ơ ngoai
       group = group001_type02(group);
+
       for (let i = 0; i < group.length; i++) {
         video.push(group[i]);
       }
@@ -110,16 +133,17 @@ function group001_type02(arr) {
         id: textId,
         toID: divA,
         group: arr[0].group,
-        styleCss: {
-          fontSize: "96px",
-          fontWeight: 800,
-          letterSpacing: "2px",
-          lineHeight: "1.1",
-          textTransform: "uppercase",
-          WebkitTextStroke: "3px #fff",
-          textShadow: "0 0 20px rgba(255,255,255,0.4)",
-          animation: "bounceIn 0.5s ease-out forwards",
-        },
+        styleCss: ObjCSS.CSStypingText001,
+        // {
+        //   fontSize: "96px",
+        //   fontWeight: 800,
+        //   letterSpacing: "2px",
+        //   lineHeight: "1.1",
+        //   textTransform: "uppercase",
+        //   WebkitTextStroke: "3px #fff",
+        //   textShadow: "0 0 20px rgba(255,255,255,0.4)",
+        //   animation: "bounceIn 0.5s ease-out forwards",
+        // },
       },
       {
         cmd: CMD_Fetch.soundPlayerAction,
